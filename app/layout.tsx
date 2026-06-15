@@ -12,7 +12,7 @@ export default function RootLayout({
       lang="en"
       className="h-full max-w-[100vw] overflow-x-hidden antialiased"
     >
-      <body className="min-h-full ">{children}</body>
+      <body className="min-h-full overflow-x-hidden">{children}</body>
     </html>
   );
 }
