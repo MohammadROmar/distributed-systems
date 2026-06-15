@@ -339,7 +339,7 @@ export function InfraSection() {
             ))}
 
             <a
-              href="https://github.com/MohammadROmar/distributed-systems-1"
+              href="https://github.com/MohammadROmar/distributed-systems"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-auto mr-3 flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-white/8 bg-white/5 hover:bg-white/10 hover:border-white/15 transition-all duration-200 group"
