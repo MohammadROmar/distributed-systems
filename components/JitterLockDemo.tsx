@@ -348,7 +348,7 @@ export function JitterLockDemo() {
       <div className="absolute -left-40 top-1/3 w-80 h-80 bg-violet-500/6 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Section header */}
-      <div className="flex items-start gap-6 mb-12">
+      <div className="flex items-start flex-col sm:flex-row gap-6 mb-12">
         <span className="font-code text-8xl font-bold text-violet-400 leading-none select-none">
           05
         </span>
@@ -408,7 +408,7 @@ export function JitterLockDemo() {
           </div>
 
           {/* Three-panel layout */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* Client A */}
             <ClientPanel
               label="CLIENT A"

@@ -363,7 +363,7 @@ export function HealthCheckDemo() {
       <div className="absolute -right-40 top-1/2 w-80 h-80 bg-emerald-500/6 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Section header */}
-      <div className="flex items-start gap-6 mb-12">
+      <div className="flex items-start flex-col sm:flex-row gap-6 mb-12">
         <span className="font-code text-8xl font-bold text-emerald-400 leading-none select-none">
           04
         </span>
@@ -438,7 +438,7 @@ export function HealthCheckDemo() {
           </div>
 
           {/* Node grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-3 gap-4">
             {nodes.map((node) => {
               const isSilent = node.crashed && node.status === 'HEALTHY';
               const isSlowStart =

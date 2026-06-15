@@ -8,8 +8,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full">{children}</body>
+    <html
+      lang="en"
+      className="h-full max-w-[100vw] overflow-x-hidden antialiased"
+    >
+      <body className="min-h-full ">{children}</body>
     </html>
   );
 }

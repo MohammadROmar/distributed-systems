@@ -202,7 +202,7 @@ export function InfraSection() {
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-cyan-950/20 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
-        <div className="flex gap-6 md:gap-10 items-start mb-16">
+        <div className="flex flex-col sm:flex-row gap-6 md:gap-10 items-start mb-16">
           <span className="font-code font-bold text-cyan-500 leading-none shrink-0 select-none text-[5rem] md:text-[7rem] -mt-3">
             06
           </span>
@@ -294,7 +294,8 @@ export function InfraSection() {
                   <div className="mt-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/5 border border-white/8">
                     <div className="w-1 h-1 rounded-full bg-emerald-400/60" />
                     <span className="font-code text-[8px] text-white/25">
-                      INSTANCE_ID={n}
+                      <span className="hidden sm:inline-block">INSTANCE_</span>
+                      ID={n}
                     </span>
                   </div>
                 </div>
@@ -323,12 +324,12 @@ export function InfraSection() {
 
         <div className="border border-white/8 rounded-xl overflow-hidden bg-black/50 mb-4">
           {/* Tab bar */}
-          <div className="flex items-center border-b border-white/8 bg-black/30">
+          <div className="flex overflow-y-auto items-center border-b border-white/8 bg-black/30">
             {(Object.keys(FILES) as FileId[]).map((key) => (
               <button
                 key={key}
                 onClick={() => setActiveFile(key)}
-                className={`px-4 py-3 font-code text-xs transition-all duration-150 border-b border-transparent ${
+                className={`px-4 py-3 whitespace-nowrap font-code text-xs transition-all duration-150 border-b border-transparent ${
                   activeFile === key
                     ? 'text-cyan-400 border-b border-cyan-400/50 bg-cyan-950/20'
                     : 'text-white/30 hover:text-white/50'

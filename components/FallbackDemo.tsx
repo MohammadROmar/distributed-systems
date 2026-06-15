@@ -102,7 +102,7 @@ export function FallbackDemo() {
       <div className="absolute -left-40 top-1/2 w-80 h-80 bg-blue-500/6 rounded-full blur-[100px] pointer-events-none" />
 
       {/* ── Section header ── */}
-      <div className="flex items-start gap-6 mb-12">
+      <div className="flex items-start flex-col sm:flex-row gap-6 mb-12">
         <span className="font-code text-8xl font-bold text-blue-400 leading-none select-none">
           03
         </span>

@@ -133,8 +133,7 @@ export function RetryBackoffDemo() {
       {/* Accent glow */}
       <div className="absolute -left-40 top-1/2 w-80 h-80 bg-orange-500/6 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* ── Section header ── */}
-      <div className="flex items-start gap-6 mb-12">
+      <div className="flex items-start flex-col sm:flex-row gap-6 mb-12">
         <span className="font-code text-8xl font-bold text-orange-500 leading-none select-none">
           01
         </span>
@@ -332,28 +331,28 @@ export function RetryBackoffDemo() {
               />
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <span className="font-code text-xs text-white/40">Jitter</span>
               <button
                 onClick={() => setWithJitter((j) => !j)}
                 disabled={running}
-                className={`relative w-11 h-6 rounded-full transition-colors disabled:opacity-50 cursor-pointer ${
+                className={`relative shrink-0 w-11 h-6 rounded-full transition-colors disabled:opacity-50 cursor-pointer ${
                   withJitter ? 'bg-orange-500' : 'bg-white/10'
                 }`}
               >
                 <span
-                  className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-all ${
-                    withJitter ? 'left-6' : 'left-1'
+                  className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white shadow transition-transform duration-200 ${
+                    withJitter ? 'translate-x-5' : 'translate-x-0'
                   }`}
                 />
               </button>
-              <span className="font-code text-xs text-white/30">
+              <span className="font-code text-xs text-white/30 min-w-0">
                 {withJitter ? 'ON — prevents thundering herd' : 'OFF'}
               </span>
             </div>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={triggerRequest}
               disabled={running}
@@ -363,7 +362,7 @@ export function RetryBackoffDemo() {
             </button>
             <button
               onClick={reset}
-              className="px-6 py-3.5 rounded-xl border border-white/10 hover:border-white/25 text-white/40 hover:text-white/70 font-heading font-bold text-sm transition-colors cursor-pointer"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-white/10 hover:border-white/25 text-white/40 hover:text-white/70 font-heading font-bold text-sm transition-colors cursor-pointer"
             >
               Reset
             </button>

@@ -210,7 +210,7 @@ export function CircuitBreakerDemo() {
       <div className="absolute -right-40 top-1/2 w-80 h-80 bg-red-500/6 rounded-full blur-[100px] pointer-events-none" />
 
       {/* ── Section header ── */}
-      <div className="flex items-start gap-6 mb-12">
+      <div className="flex items-start flex-col sm:flex-row gap-6 mb-12">
         <span className="font-code text-8xl font-bold text-red-500 leading-none select-none">
           02
         </span>
@@ -279,9 +279,9 @@ export function CircuitBreakerDemo() {
           </div>
 
           {/* ── Architecture diagram ── */}
-          <div className="flex items-stretch gap-3">
+          <div className="flex items-stretch flex-col sm:flex-row gap-4 sm:gap-3">
             {/* Request source */}
-            <div className="shrink-0 w-24 flex flex-col items-center justify-center gap-1 rounded-xl border border-white/10 bg-white/2 py-4">
+            <div className="shrink-0 w-full sm:w-24 flex flex-col items-center justify-center gap-1 rounded-xl border border-white/10 bg-white/2 py-3 sm:py-4">
               <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
               <span className="font-code text-[11px] text-white/30">
                 REQUEST
@@ -289,9 +289,9 @@ export function CircuitBreakerDemo() {
             </div>
 
             {/* Arrow + gate */}
-            <div className="flex-1 flex items-center gap-3">
+            <div className="w-full sm:flex-1 flex items-center gap-3">
               {/* Line to gate */}
-              <div className="flex-1 relative h-1 overflow-hidden rounded">
+              <div className="flex-1 min-w-0 relative h-1 overflow-hidden rounded">
                 <div className="absolute inset-0 bg-white/8 rounded" />
                 {requestFlows && (
                   <div className="absolute inset-y-0 w-1/2 bg-linear-to-r from-transparent via-white/30 to-transparent animate-flow rounded" />
@@ -300,7 +300,7 @@ export function CircuitBreakerDemo() {
 
               {/* Gate */}
               <div
-                className={`relative shrink-0 w-16 h-16 rounded-xl border-2 flex flex-col items-center justify-center gap-1 transition-all duration-500 ${
+                className={`relative shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 flex flex-col items-center justify-center gap-1 transition-all duration-500 ${
                   cbState === 'CLOSED'
                     ? 'border-green-500/60  bg-green-500/8   shadow-[0_0_20px_rgba(34,197,94,0.15)]'
                     : cbState === 'OPEN'
@@ -319,7 +319,7 @@ export function CircuitBreakerDemo() {
               </div>
 
               {/* Line from gate → service */}
-              <div className="flex-1 relative h-1 overflow-hidden rounded">
+              <div className="flex-1 min-w-0 relative h-1 overflow-hidden rounded">
                 <div className="absolute inset-0 bg-white/8 rounded" />
                 {requestFlows && (
                   <div className="absolute inset-y-0 w-1/2 bg-linear-to-r from-transparent via-white/30 to-transparent animate-flow rounded" />
@@ -336,7 +336,7 @@ export function CircuitBreakerDemo() {
 
             {/* Service box */}
             <div
-              className={`shrink-0 w-24 flex flex-col items-center justify-center gap-1 rounded-xl border py-4 transition-all duration-300 ${
+              className={`shrink-0 w-full sm:w-24 flex flex-col items-center justify-center gap-1 rounded-xl border py-3 sm:py-4 transition-all duration-300 ${
                 serviceUp
                   ? 'border-white/10 bg-white/2'
                   : 'border-red-500/30 bg-red-500/5'
@@ -389,22 +389,22 @@ export function CircuitBreakerDemo() {
           )}
 
           {/* ── Controls ── */}
-          <div className="flex flex-wrap items-center gap-4 border-t border-white/6 pt-6">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 border-t border-white/6 pt-6">
+            <div className="flex flex-wrap items-center gap-3">
               <span className="font-code text-xs text-white/40">Service</span>
               <button
                 onClick={() => setServiceUp((u) => !u)}
-                className={`relative w-11 h-6 rounded-full transition-colors cursor-pointer ${
+                className={`relative shrink-0 w-11 h-6 rounded-full transition-colors cursor-pointer ${
                   serviceUp ? 'bg-green-500' : 'bg-red-500/70'
                 }`}
               >
                 <span
-                  className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-all ${
-                    serviceUp ? 'left-6' : 'left-1'
+                  className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white shadow transition-transform duration-200 ${
+                    serviceUp ? 'translate-x-5' : 'translate-x-0'
                   }`}
                 />
               </button>
-              <span className="font-code text-xs text-white/30">
+              <span className="font-code text-xs text-white/30 min-w-0">
                 {serviceUp
                   ? 'Healthy — requests succeed'
                   : 'Down — requests fail'}
@@ -414,7 +414,7 @@ export function CircuitBreakerDemo() {
             <button
               onClick={sendRequest}
               disabled={requesting}
-              className={`ml-auto px-6 py-3 rounded-xl font-heading font-bold text-sm transition-all cursor-pointer disabled:opacity-50 ${
+              className={`w-full sm:w-auto sm:ml-auto px-6 py-3 rounded-xl font-heading font-bold text-sm transition-all cursor-pointer disabled:opacity-50 ${
                 cbState === 'OPEN'
                   ? 'bg-red-500/20 border border-red-500/40 text-red-300 hover:bg-red-500/30'
                   : 'bg-white/8 border border-white/15 text-white/80 hover:bg-white/12'
