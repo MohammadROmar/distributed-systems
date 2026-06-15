@@ -81,6 +81,11 @@ export function Hero() {
           Distributed Systems
         </h1>
 
+        <p className="font-code max-w-2xl text-sm text-white/35 text-center leading-relaxed">
+          Best experienced on a desktop or laptop screen. Mobile is not
+          responsive.
+        </p>
+
         <a
           href="https://github.com/MohammadROmar/distributed-systems"
           target="_blank"
